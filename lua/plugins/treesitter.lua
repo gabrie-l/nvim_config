@@ -1,7 +1,7 @@
-
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "master",
         build = ":TSUpdate",
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
@@ -29,6 +29,7 @@ return {
     },
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
+        branch = "master",
         lazy = true,
         config = function()
             require('nvim-treesitter.configs').setup {
@@ -46,7 +47,7 @@ return {
                 textobjects = {
                     select = {
                         enable = true,
-                        lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+                        lookahead = true,
                         keymaps = {
                             ['aa'] = '@parameter.outer',
                             ['ia'] = '@parameter.inner',
@@ -58,16 +59,11 @@ return {
                     },
                     swap = {
                         enable = true,
-                        swap_next = {
-                            ['<leader>a'] = '@parameter.inner',
-                        },
-                        swap_previous = {
-                            ['<leader>A'] = '@parameter.inner',
-                        },
+                        swap_next = { ['<leader>a'] = '@parameter.inner' },
+                        swap_previous = { ['<leader>A'] = '@parameter.inner' },
                     },
                 },
             }
         end,
     }
 }
-
